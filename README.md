@@ -1,4 +1,5 @@
-# Research Artifact: Evaluating LLM-Based Code Summarization Across Models and Prompting Strategies
+# Research Artifact: 
+# Source Code Summarization with LLMs: Evaluating the Impact of Software Artifacts
 
 This repository provides the research artifact and experimental dataset for evaluating Large Language Model (LLM)-based source code summarization using **Qwen, DeepSeek, and CodeLlama**.
 
@@ -72,3 +73,8 @@ This artifact is intended to:
 ## Repository
 
 `https://github.com/malikah21/LLMforCodeSummarization`
+
+## Authors:
+1. Malika Harsanto
+2. [Yusuf Sulistyo Nugroho](https://www.ums.ac.id/profile/yusuf-sulistyo-nugroho)
+3. [Syful Islam](https://syful-is.github.io/)
