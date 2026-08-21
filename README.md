@@ -35,8 +35,102 @@ The experiment evaluates three Large Language Models:
 Each model is evaluated using three prompting strategies:
 
 1. **Zero-shot prompting**
+```
+You are a senior software engineer with expertise in code readability, maintainability, and program comprehension.
+Given a source code file along with contextual information, generate a clear and concise code summary.
+Do not repeat the code. Ensure the summary is optimized for the following assessment aspects:
+Semantic Correctness, Informativeness, Readability, Usefulness, and Overall Quality.
+1. Semantic Correctness: The summary must accurately represent the code's logic, control flow, and technical behavior without misinterpretation.
+2. Informativeness: The summary must include key details such as the primary objective, major input/output, and relevant dependencies.
+3. Readability: The summary must use straightforward, structured language that is easy for other developers to comprehend.
+4. Usefulness: The summary must provide context that aids in code maintenance and program understanding.
+5. Overall Quality: The summary must be professional, concise, and adhere to industry-standard documentation practices.
+
+Inputs:
+- Code: {code}
+- README: {readme}
+- Complexity: {complexity}
+- Comments: {comments}
+- Commits: {commits}
+- Code Size: {len(code)}
+
+Output ONLY the final summary.
+```
+
 2. **Few-shot prompting**
+```
+You are a senior software engineer with expertise in code readability, maintainability, and program comprehension.
+Given a source code file along with contextual information, generate a clear and concise code summary.
+Do not repeat the code. Ensure the summary is optimized for the following assessment aspects:
+Semantic Correctness, Informativeness, Readability, Usefulness, and Overall Quality.
+1. Semantic Correctness: The summary must accurately represent the code's logic, control flow, and technical behavior without misinterpretation.
+2. Informativeness: The summary must include key details such as the primary objective, major input/output, and relevant dependencies.
+3. Readability: The summary must use straightforward, structured language that is easy for other developers to comprehend.
+4. Usefulness: The summary must provide context that aids in code maintenance and program understanding.
+5. Overall Quality: The summary must be professional, concise, and adhere to industry-standard documentation practices.
+
+Below are examples of how to generate the summary:
+### EXAMPLE 1 ###
+Inputs:
+- Code: 
+def load_config(filepath):
+   if not os.path.exists(filepath):
+   raise FileNotFoundError("Config missing")
+   with open(filepath, 'r') as 
+f: return json.load(f)
+- README: Utility to initialize system settings.
+- Complexity: Cyclomatic Complexity: 2
+- Comments: Checks for file existence before loading JSON.
+- Commits: Added error handling for missing configuration files.
+- Code Size: 5 lines
+
+Output:
+The `load_config` function acts as a secure utility to initialize system settings by parsing a JSON configuration file. Its primary objective is to safely read the file and return a dictionary of settings (Output) based on the provided `filepath` string (Input). The function includes a critical validation step added in a recent commit that checks for file existence and raises a `FileNotFoundError` if the file is missing, preventing unexpected downstream crashes. With a low cyclomatic complexity, this straightforward utility ensures the system fails gracefully during initialization, making it highly maintainable and essential for overall system stability.
+
+### ACTUAL TASK ###
+Inputs:
+- Code: {code}
+- README: {readme}
+- Complexity: {complexity}
+- Comments: {comments}
+- Commits: {commits}
+- Code Size: {len(code)}
+
+Output:
+```
+
 3. **Chain-of-thought prompting**
+```
+You are a senior software engineer with expertise in code readability, maintainability, and program comprehension.
+Given a source code file along with contextual information, generate a clear and concise code summary.
+Do not repeat the code. Ensure the summary is optimized for the following assessment aspects:
+Semantic Correctness, Informativeness, Readability, Usefulness, and Overall Quality.
+
+Follow this step by step thinking process to formulate your response:
+Step 1: Analyze the code holistically
+- Identify what the code does and determine its main purpose.
+- Understand major inputs and outputs (Informativeness).
+Step 2: Break down the logic
+- Identify key operations and control flow.
+- Ensure the technical behavior is understood without misinterpretation (Semantic Correctness).
+Step 3: Incorporate contextual information
+- Context: Complexity: {complexity}, Comments: {comments}, Commits: {commits}, README: {readme}, Code Size: {len(code)}.
+- Use this information to grasp the code's role in system maintenance and its broader context (Usefulness). Do NOT repeat these raw metrics directly.
+Step 4: Refine explanation
+- Avoid redundancy.
+- Use clear, straightforward, and precise language (Readability).
+- Ensure the narrative aligns with professional documentation standards (Overall Quality).
+Step 5: Generate final summary
+- Write a cohesive 2-3 sentence paragraph.
+- Focus strictly on functionality and purpose.
+
+Important:
+Output ONLY the final summary. Do NOT include your internal steps, reasoning, bullet points, or explanations in the final output.
+Code:
+{code}
+
+Summary:
+```
 
 This results in nine model-prompt configurations used to generate source code summaries.
 
