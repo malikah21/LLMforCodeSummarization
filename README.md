@@ -19,7 +19,7 @@ The purpose of this repository is to provide the datasets, experimental outputs,
   Contains the source code samples used as input for the code summarization experiments. These samples form the experimental dataset evaluated across Qwen, DeepSeek, and CodeLlama.
 
 * `README.md`
-  Provides an overview of the repository, research objectives, dataset organization, and experimental evaluation.
+  This file that provides an overview of the repository, research objectives, dataset organization, and experimental evaluation.
 
 * `LICENSE`
   Specifies the terms under which the research artifact and repository materials may be used and redistributed.
@@ -85,7 +85,12 @@ f: return json.load(f)
 - Code Size: 5 lines
 
 Output:
-The `load_config` function acts as a secure utility to initialize system settings by parsing a JSON configuration file. Its primary objective is to safely read the file and return a dictionary of settings (Output) based on the provided `filepath` string (Input). The function includes a critical validation step added in a recent commit that checks for file existence and raises a `FileNotFoundError` if the file is missing, preventing unexpected downstream crashes. With a low cyclomatic complexity, this straightforward utility ensures the system fails gracefully during initialization, making it highly maintainable and essential for overall system stability.
+The `load_config` function acts as a secure utility to initialize system settings by parsing a JSON configuration file.
+Its primary objective is to safely read the file and return a dictionary of settings (Output) based on the provided
+`filepath` string (Input). The function includes a critical validation step added in a recent commit that checks
+for file existence and raises a `FileNotFoundError` if the file is missing, preventing unexpected downstream crashes.
+With a low cyclomatic complexity, this straightforward utility ensures the system fails gracefully during initialization,
+making it highly maintainable and essential for overall system stability.
 
 ### ACTUAL TASK ###
 Inputs:
@@ -115,7 +120,8 @@ Step 2: Break down the logic
 - Ensure the technical behavior is understood without misinterpretation (Semantic Correctness).
 Step 3: Incorporate contextual information
 - Context: Complexity: {complexity}, Comments: {comments}, Commits: {commits}, README: {readme}, Code Size: {len(code)}.
-- Use this information to grasp the code's role in system maintenance and its broader context (Usefulness). Do NOT repeat these raw metrics directly.
+- Use this information to grasp the code's role in system maintenance and its broader context (Usefulness).
+  Do NOT repeat these raw metrics directly.
 Step 4: Refine explanation
 - Avoid redundancy.
 - Use clear, straightforward, and precise language (Readability).
@@ -166,7 +172,7 @@ This artifact is intended to:
 
 ## Repository
 
-`https://github.com/malikah21/LLMforCodeSummarization`
+[LLM for Code Summarization](https://github.com/malikah21/LLMforCodeSummarization)
 
 ## Authors:
 1. Malika Harsanto
